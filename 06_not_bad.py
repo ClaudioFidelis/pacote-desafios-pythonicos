@@ -17,9 +17,8 @@ def not_bad(s):
         s = s.replace(s[n:b+3], 'good')
     return s
 
-
-
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
+
 
 def test(f, in_, expected):
     """

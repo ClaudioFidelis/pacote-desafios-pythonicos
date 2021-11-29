@@ -10,6 +10,7 @@ Se o tamanho da string for menor que 3, não altere nada.
 Retorne o resultado da string.
 """
 
+
 def verbing(s):
     # +++ SUA SOLUÇÃO +++
     if len(s) < 3:
@@ -50,4 +51,3 @@ if __name__ == '__main__':
     test(verbing, 'test', 'testing')
     test(verbing, 'maker', 'makering')
     test(verbing, 'steping', 'stepingly')
-

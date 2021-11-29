@@ -12,6 +12,7 @@ a-frente + b-frente + a-trás + b-trás
 """
 import math
 
+
 def front_back(a, b):
     # +++ SUA SOLUÇÃO +++
     # solução claudio
@@ -23,7 +24,7 @@ def front_back(a, b):
     #     pos_b += 1
     # return ''.join((a[:pos_a], b[0:pos_b], a[pos_a:], b[pos_b:]))
 
-    #solucao encapsulamentp
+    # solucao encapsulamentp
     def index(s):
         return math.ceil(len(s) / 2)
 
