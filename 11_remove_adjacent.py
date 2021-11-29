@@ -10,7 +10,14 @@ Irá retornar: [1, 2, 3]
 
 def remove_adjacent(nums):
     # +++ SUA SOLUÇÃO +++
-    return
+    i = 0
+    lista = []
+    while i < len(nums):
+        if not ((i != 0) and (nums[i] == nums[i-1])):
+            lista.append(nums[i])
+        i += 1
+    return lista
+
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
@@ -38,3 +45,6 @@ if __name__ == '__main__':
     test(remove_adjacent, [2, 2, 3, 3, 3], [2, 3])
     test(remove_adjacent, [], [])
     test(remove_adjacent, [2, 2, 3, 3, 3, 2, 2], [2, 3, 2])
+    test(remove_adjacent, [2, 2, 3, 3, 3, 2, 2], [2, 3, 2])
+    test(remove_adjacent, [2, 2, 3, 3, 4, 44, 3, 2, 2], [2, 3, 4, 44, 3, 2])
+    test(remove_adjacent, [-1, -55, -6, -55, -55, -6], [-1, -55, -6, -55, -6])

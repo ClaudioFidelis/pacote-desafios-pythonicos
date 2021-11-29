@@ -10,9 +10,30 @@ Exemplo: 'abcde', a metade da frente é 'abc' e a de trás é 'de'.
 Finalmente, dadas duas strings a e b, retorne uma string na forma:
 a-frente + b-frente + a-trás + b-trás
 """
+import math
+
 def front_back(a, b):
     # +++ SUA SOLUÇÃO +++
-    return
+    # solução claudio
+    # pos_a = int(len(a) / 2)
+    # pos_b = int(len(b) / 2)
+    # if (len(a) % 2) != 0:
+    #     pos_a += 1
+    # if (len(b) % 2) != 0:
+    #     pos_b += 1
+    # return ''.join((a[:pos_a], b[0:pos_b], a[pos_a:], b[pos_b:]))
+
+    #solucao encapsulamentp
+    def index(s):
+        return math.ceil(len(s) / 2)
+
+    def inicio(s):
+        return s[:index(s)]
+
+    def fim(s):
+        return s[index(s):]
+
+    return ''.join([inicio(a), inicio(b), fim(a), fim(b)])
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
@@ -39,3 +60,5 @@ if __name__ == '__main__':
     test(front_back, ('abcd', 'xy'), 'abxcdy')
     test(front_back, ('abcde', 'xyz'), 'abcxydez')
     test(front_back, ('Kitten', 'Donut'), 'KitDontenut')
+
+    test(front_back, ('Margarida', 'Petonia'), 'MargaPetoridania')

@@ -9,8 +9,7 @@ for menor que 2, retorne uma string vazia.
 
 def both_ends(s):
     # +++ SUA SOLUÇÃO +++
-    return
-
+    return '' if len(s) < 2 else s[0:2] + s[-2:]
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
 
@@ -33,7 +32,7 @@ def test(f, in_, expected):
 
 if __name__ == '__main__':
     # Testes que verificam o resultado do seu código em alguns cenários.
-    test(both_ends, 'spring', 'spng')
+    test(both_ends, '33456', '3356')
     test(both_ends, 'Hello', 'Helo')
     test(both_ends, 'a', '')
-    test(both_ends, 'xyz', 'xyyz')
+    test(both_ends, 'aa', 'aaaa')
