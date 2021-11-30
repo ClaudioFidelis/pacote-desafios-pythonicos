@@ -57,6 +57,27 @@ import sys
 # +++ SUA SOLUÇÃO +++
 # Defina as funções print_words(filename) e print_top(filename).
 
+# Minha solução
+def ler_arquivo(filename, sort_desc):
+    with open(filename, "r") as arquivo:
+        str = arquivo.read()
+    lista = sorted(str.lower().split())
+    tupla = [(v, lista.count(v)) for i, v in enumerate(lista) if lista[i] != lista[i - 1] or i == 0]
+    if sort_desc: tupla.sort(key=lambda x: x[1], reverse=True)
+    return tupla
+
+def print_words(filename):
+    tupla = ler_arquivo(filename, False)
+    for i in tupla: print(i[0], i[1])
+    return True
+
+def print_top(filename):
+    tupla = ler_arquivo(filename, True)
+    i = 0
+    while i < len(tupla) and i < 20:
+        print(tupla[i][0], tupla[i][1])
+        i += 1
+    return True
 
 # A função abaixo chama print_words() ou print_top() de acordo com os
 # parêtros do programa.
