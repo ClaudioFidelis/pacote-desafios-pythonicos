@@ -52,12 +52,13 @@ e conferindo cada etapa do seu progresso.
 """
 
 import sys
-
+from collections import Counter
 
 # +++ SUA SOLUÇÃO +++
 # Defina as funções print_words(filename) e print_top(filename).
 
 # Minha solução
+"""
 def ler_arquivo(filename, sort_desc):
     with open(filename, "r") as arquivo:
         str = arquivo.read()
@@ -78,9 +79,29 @@ def print_top(filename):
         print(tupla[i][0], tupla[i][1])
         i += 1
     return True
+"""
+
+
+# Solução otimizada copiada dos colegas
+def print_words(filename):
+    for word, count in count_words(filename).items():
+        print(f'{word} : {count}')
+
+
+def print_top(filename):
+    for word, count in sorted(count_words(filename, 20).items(), key=lambda wordc: wordc[1], reverse=True):
+        print(f'{word} : {count}')
+
+
+def count_words(filename, slice=-1):
+    stopwords = [" ", "\n", "\t", ".", ",", ";"]
+    with open(filename) as f:
+        return Counter([word.lower() for word in f.read() if word not in stopwords][:slice])
 
 # A função abaixo chama print_words() ou print_top() de acordo com os
 # parêtros do programa.
+
+
 def main():
     if len(sys.argv) != 3:
         print('Utilização: ./13_wordcount.py {--count | --topcount} file')
