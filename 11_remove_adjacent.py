@@ -11,13 +11,20 @@ Irá retornar: [1, 2, 3]
 
 def remove_adjacent(nums):
     # +++ SUA SOLUÇÃO +++
+
+    #Solução com otimização
+    return [v for i, v in enumerate(nums) if nums[i] != nums[i - 1] or i == 0]
+
+
+    #Minha solução sem otimização
+    """"
     i = 0
     lista = []
     while i < len(nums):
         if not ((i != 0) and (nums[i] == nums[i - 1])): lista.append(nums[i])
         i += 1
     return lista
-
+    """
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
 
